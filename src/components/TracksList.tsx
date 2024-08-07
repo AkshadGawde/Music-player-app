@@ -1,4 +1,4 @@
-import React from 'react'
+import library from '@/assets/data/library.json';
 import { FlatList } from 'react-native'
 
 export const TracksList = () => {
