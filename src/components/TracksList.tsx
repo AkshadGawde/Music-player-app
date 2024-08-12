@@ -5,17 +5,19 @@ import { utilsStyles } from '../styles/index';
 
 
 // Correctly typing the FlatList props
-export type TracksListProps = Partial<FlatListProps<unknown>>;
+export type TracksListProps = Partial<FlatListProps<unknown>> & {
+  tracks: any[];
+}
 
 // Correct export syntax for the divider component
 export const ItemDivider = () => (
   <View style={{ ...utilsStyles.itemSeparator, marginVertical: 5, marginLeft: 50 }} />
 );
 
-export const TracksList = ({ ...flatListProps }: TracksListProps) => {
+export const TracksList = ({ tracks, ...flatListProps }: TracksListProps) => {
   return (
     <FlatList
-      data={library}
+      data={tracks}
       contentContainerStyle={{ paddingTop:10, paddingBottom: 128 }}
       ListFooterComponent={ItemDivider}
       ItemSeparatorComponent={ItemDivider}
