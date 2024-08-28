@@ -3,9 +3,10 @@ import { colors, fontSize } from '@/constants/tokens';
 import { defaultStyles } from '@/styles';
 import { StyleSheet, Text, TouchableHighlight, View } from 'react-native';
 import FastImage from 'react-native-fast-image';
+import { Track } from 'react-native-track-player';
 
 export type TrackListItemProps = {
-  track: { title: string; image?: string; artist?: string };
+  track: Track;
 };
 
 export const TracksListItem = ({ track }: TrackListItemProps) => {
@@ -18,7 +19,7 @@ export const TracksListItem = ({ track }: TrackListItemProps) => {
       <View style={styles.container}>
         <FastImage
           source={{
-            uri: track.image ?? unknownTrackImageUri,
+            uri: track.artwork ?? unknownTrackImageUri,
             priority: FastImage.priority.normal,
           }}
           style={{
